@@ -2,9 +2,9 @@ import React from "react";
 
 const WhyChoose = () => {
   return (
-    <div className="p-4 ">
+    <div className="p-4 text-center">
       <div className="flex flex-col  justify-center items-center h-40">
-        <h1 className="font-bold text-4xl "> Why Choose SoleStore?</h1>
+        <h1 className="font-bold md:text-4xl text-3xl "> Why Choose SoleStore?</h1>
         <p className="text-gray-400">
           We're committed to bringing you the best in footwear fashion and
           comfort
