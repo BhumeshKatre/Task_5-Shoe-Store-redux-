@@ -12,7 +12,7 @@ const Navbar = () => {
         <div className="">
           <Link>
             <img
-              className="w-40 h-12 hover:-translate-0.5 rounded-xl  shadow-emerald-50"
+              className="w-40 h-12 hover:-translate-0.5 rounded-xl duration-600 shadow-emerald-50"
               src={Logo}
               alt=""
             />
