@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Shoe1 from "/shoes/s1.png";
 import { IoCartOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../redux/cartSlice";
@@ -16,8 +15,8 @@ const Card = ({ shoe }) => {
 
   return (
     <div className="flex flex-col gap-2 rounded-2xl  overflow-hidden bg-white hover:-translate-1 duration-600 hover:shadow-md shadow ">
-      <div className="relative">
-        <img src={Shoe1} alt="" />
+      <div className="relative h-[60%]">
+        <img src={image} alt="" className="h-full" />
 
         <span className=" absolute top-3 left-3 inline-flex items-center rounded-md bg-white px-2 py-1 text-xs font-medium text-gray-400 inset-ring inset-ring-white/20 ">
           {brand}
