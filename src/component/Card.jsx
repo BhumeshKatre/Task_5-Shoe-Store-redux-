@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Shoe1 from "/shoes/s1.png";
 import { IoCartOutline } from "react-icons/io5";
 
-
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../redux/cartSlice";
 const Card = ({ shoe }) => {
-  const { name, brand, rating, size, image , price} = shoe;
+  const dispatch = useDispatch();
+  const { name, brand, rating, size, image, price } = shoe;
+  const { cartItems, itemTotalPrice } = useSelector((state) => state.cart);
+  const [selectSize, setSelectSize] = useState(null);
+
+  const handleSize = (e) => {
+    setSelectSize(e.target.value);
+  };
+
+  const existCartItem = cartItems.find((item) => item.id === shoe.id);
+
+
   return (
     <div className="flex flex-col gap-2 rounded-2xl  overflow-hidden bg-white hover:-translate-1 duration-600 hover:shadow-md shadow ">
       <div className="relative">
@@ -23,34 +35,47 @@ const Card = ({ shoe }) => {
           <div>
             <p>
               <span class="inline-flex items-center rounded-md  px-2 py-1 text-xs font-medium text-gray-400 ">
-                {rating}
+                ⭐{rating}
               </span>
             </p>
           </div>
         </div>
         <div className="px-2 py-1 flex justify-between ">
-          <h2 className="text-2xl font-bold text-blue-500 ">$ {price}</h2>
+          <h2 className="text-xl font-bold text-blue-500 ">$ {price}</h2>
           <p className="">
             <span class="inline-flex items-center rounded-md bg-gray-400/10 px-2 py-1 text-xs font-medium text-gray-400 inset-ring inset-ring-gray-400/20">
-              {size}
+              { selectSize || size}
             </span>
           </p>
         </div>
         <div className="px-2 py-3 flex flex-col  ">
           <p>size</p>
-          <select className="w-full p-2 bg-gray-300 px-3 rounded-md  outline-blue-400">
-            <option className=" rounded-2xl ">Select Size</option>
-            <option>7</option>
-            <option>7.5</option>
-            <option>8</option>
-            <option>8.5</option>
-            <option>9</option>
-            <option>9.5</option>
-            <option>10</option>
+          <select
+            value={selectSize}
+            onChange={handleSize}
+            className="w-full p-2 bg-gray-300 px-3 rounded-md  outline-blue-400">
+            <option >Select Size</option>
+            <option value={'7'}>7</option>
+            <option value={'7.5'}>7.5</option>
+            <option value={'8'}>8</option>
+            <option value={'8.5'}>8.5</option>
+            <option value={'9'}>9</option>
+            <option value={'9.5'}>9.5</option>
+            <option value={'10'}>10</option>
           </select>
         </div>
         <div className="px-2 py-3 flex flex-col w-full">
-          <button className="bg-[#13fc03] p-2 rounded-lg flex items-center justify-center gap-2 font-semibold"> <IoCartOutline />Add To cart</button>
+          <button
+            disabled={!selectSize || existCartItem}
+            onClick={() => {
+              dispatch(addToCart({ ...shoe, size: selectSize }))
+                setSelectSize(null);
+            }}
+            className={`p-2 rounded-lg flex items-center justify-center gap-2 font-semibold ${selectSize ? 'bg-[#13fc03] ' : ' bg-green-300'} `}
+          >
+            <IoCartOutline />
+            Add To cart
+          </button>
         </div>
       </div>
     </div>
