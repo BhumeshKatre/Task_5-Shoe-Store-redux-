@@ -1,12 +1,16 @@
 import React from "react";
 import Logo from "/imgs/logo.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { Button } from "react-bootstrap";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useSelector } from "react-redux";
+
 
 const Navbar = () => {
+  const { cartItems, itemTotalPrice } = useSelector((state) => state.cart);
+
   return (
     <header className="sticky top-0 left-0  grid grid-cols-2 justify-between gap-4 px-5 py-2 w-full shadow backdrop-blur-sm bg-white/20 items-center z-40 ">
       <div className="flex gap-5 items-center">
@@ -60,9 +64,12 @@ const Navbar = () => {
                   }`}
                 ></div>
 
-                <div className=" absolute -top-2 -right-4 rounded-full bg-[#13fc03] w-5 h-5 flex items-center justify-center text-xs text-center text-black ">
-                  1
-                </div>
+                {
+                  (cartItems  && cartItems.length > 0 )  &&
+                  <div className=" absolute -top-2 -right-4 rounded-full bg-[#13fc03] w-5 h-5 flex items-center justify-center text-xs text-center text-black ">
+                    {cartItems.length}
+                  </div>
+               }
               </>
             )}
 
@@ -105,11 +112,16 @@ const Navbar = () => {
           </div>
         </div>
         <div className='flex gap-2 items-center justify-center'>
-          <Link className="flex  gap-2 items-center bg-blue-500 py-1.5 px-4 text-white rounded-md font-medium hover:shadow-md relative">
+          <Link
+            to={'/cart'}
+            className="flex  gap-2 items-center bg-blue-500 py-1.5 px-4 text-white rounded-md font-medium hover:shadow-md relative">
             <IoCartOutline className="font-semibold" /> Cart
-            <div className=" absolute -top-2 right-0 rounded-full bg-[#13fc03] w-5 h-5 flex items-center justify-center text-xs text-center text-black ">
-              1
-            </div>
+            {
+              (cartItems && cartItems.length > 0) &&
+              <div className=" absolute -top-2 -right-1 rounded-full bg-[#13fc03] w-5 h-5 flex items-center justify-center text-xs text-center text-black ">
+                {cartItems.length}
+              </div>
+            }
           </Link>
 
           <button className="md:hidden flex p-1 hover:bg-[#13fc03]">

@@ -2,7 +2,7 @@ import React from 'react';
 import { FiShoppingBag } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
-const EmptyCartComp = ({ text , icon }) => {
+const EmptyCart = ({ text , icon }) => {
   return (
     <div className='flex h-[100vh] items-center justify-center box-border '>
       <div className='text-center flex items-center justify-center flex-col gap-3'>
@@ -22,7 +22,7 @@ const EmptyCartComp = ({ text , icon }) => {
   );
 }
 
-export default EmptyCartComp;
+export default EmptyCart;
 
 
 // 
