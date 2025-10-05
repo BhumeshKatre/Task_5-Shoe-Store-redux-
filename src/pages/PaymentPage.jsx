@@ -30,7 +30,7 @@ const PaymentPage = () => {
                     <MdPayment /> Payment Information
                   </h1>
 
-                  <div className="py-4 px-5">
+                  <div className="py-4 md:px-5">
                     <form action="">
                       <div className="flex flex-col">
                         <label
@@ -172,7 +172,7 @@ const PaymentPage = () => {
                   </div>
                 </div>
 
-                <div className="p-4 bg-white w-92 rounded-lg  md:order-2 order-1 h-full ">
+                <div className="p-4 bg-white md:w-92 rounded-lg  md:order-2 order-1 h-full ">
                   <h2 className="text-lg font-semibold"> Order Summary </h2>
                   <div className="py-4 ">
                     {
