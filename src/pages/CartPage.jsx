@@ -4,6 +4,7 @@ import { FiShoppingBag } from "react-icons/fi";
 import Shoe1 from "/shoes/s1.png";
 import { shoes } from "../Data";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const CartPage = () => {
   const text = "Looks like you haven't added any shoes to your cart yet.";
@@ -16,8 +17,8 @@ const CartPage = () => {
           <p>2 items in your cart</p>
         </div>
 
-        <div className="flex justify-between px-4 py-3 gap-4 ">
-          <div className="flex flex-col gap-2 flex-1 ">
+        <div className="flex md:flex-row flex-col md:justify-between md:px-4 py-3 gap-4 ">
+          <div className="flex  gap-2 flex-1  order-2 md:order-2">
             <div className="flex w-full h-40 justify-between p-2 bg-white border border-gray-200  rounded-md ">
               <div className="flex gap-2  ">
                 <img className="w-26 h-26 rounded-2xl" src={Shoe1} alt="" />
@@ -30,18 +31,20 @@ const CartPage = () => {
                     <span className="me-4 px-2 border-1 border-gray-300 p-0.5 text-[12px] bg-white rounded-lg">
                       size : 11{" "}
                     </span>
-                    <span className="font-bold text-2xl text-blue-500">$200</span>
+                    <span className="font-bold text-2xl text-blue-500">
+                      $200
+                    </span>
                   </div>
                 </div>
               </div>
 
               <div className="flex justify-between pt-4 flex-col ">
                 <div className="flex gap-2 items-center">
-                  <button className="  text-center w-8 h-8  rounded-md bg-gray-300 font-bold text-lg">
+                  <button className="  text-center w-7 h-7  rounded-md bg-gray-300 font-bold text-xl">
                     -
                   </button>
-                  <span>0</span>
-                  <button className=" w-8 h-8  rounded-md bg-gray-300 font-bold text-lg">
+                  <span>1</span>
+                  <button className=" w-7 h-7  rounded-md bg-gray-300 font-bold text-xl">
                     +
                   </button>
                 </div>
@@ -50,9 +53,9 @@ const CartPage = () => {
                 </div>
               </div>
             </div>
-       </div>
+          </div>
 
-          <div className="p-4 bg-white w-92 rounded-lg  ">
+          <div className="p-4 bg-white w-92 rounded-lg  md:order-2 order-1 ">
             <h2 className="text-lg font-semibold"> Order Summary </h2>
             <div className=" ">
               <div className="flex justify-between p-2 ">
@@ -73,10 +76,19 @@ const CartPage = () => {
                 <p className="font-semibold">$79.99</p>
               </div>
 
-              <div>
-                <Button variant="primary" className="w-full py-2 mb-2">Proceed to payment</Button>
-                <Button variant="secondary" className="w-full py-2">continue shopping</Button>
+              <div className="space-y-2 mt-4">
+                <button className="w-full bg-blue-500 py-2.5 px-6 text-white font-semibold rounded-md hover:bg-sky-700 ">
+                  proceed to payment
+                </button>
+                <Link to="/">
+                  <button className="w-full bg-gray-400 py-2.5 px-6 text-white font-semibold rounded-md cursor-pointer hover:bg-[#13fc03]">
+                    continue shopping
+                  </button>
+                </Link>
               </div>
+              <span class="inline-flex items-center rounded-md mt-3 bg-gray-400/10 px-2 py-1 text-[11.5px] font-medium text-gray-400 inset-ring inset-ring-gray-400/20">
+                🔒 Secure checkout powered by industry-leading encryption
+              </span>
             </div>
           </div>
         </div>

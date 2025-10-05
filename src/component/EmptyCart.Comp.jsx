@@ -11,7 +11,7 @@ const EmptyCartComp = ({ text , icon }) => {
         <p className='text-gray-500 '>{text}</p>
    
         <div className='mt-4'>
-          <Link to={'/'} className='bg-blue-500 py-2.5 px-6 text-white font-semibold rounded-md'>
+          <Link to={'/'} className='bg-blue-500 py-2.5 px-6 text-white font-semibold rounded-md hover:bg-sky-700'>
            Continue Shopping 
           </Link>
         </div>

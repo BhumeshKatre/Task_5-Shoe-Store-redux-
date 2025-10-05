@@ -4,6 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { Button } from "react-bootstrap";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar = () => {
   return (
@@ -12,73 +13,88 @@ const Navbar = () => {
         <div className="">
           <Link>
             <img
-              className="w-40 h-12 hover:-translate-0.5 rounded-xl duration-600 shadow-emerald-50"
+              className="md:w-40 w-30 h-12 hover:-translate-0.5 rounded-xl duration-600 shadow-emerald-50"
               src={Logo}
               alt=""
             />
           </Link>
         </div>
-        <nav className="flex  gap-8">
+        <nav className="hidden md:flex gap-8">
           <NavLink to="/" className="flex flex-col items-center">
             {({ isActive }) => (
               <>
                 <span
-                  className={
+                  className={`${
                     isActive
-                      ? "text-blue-400 "
+                      ? "text-blue-500"
                       : "text-gray-500 hover:text-blue-400"
-                  }
+                  }`}
                 >
-                  shop
+                  Shop
                 </span>
                 <div
-                  className={`h-0.5 w-full ${isActive ? "bg-blue-500 " : ""}`}
+                  className={`h-0.5 w-full ${
+                    isActive ? "bg-blue-500" : "hidden"
+                  }`}
                 ></div>
               </>
             )}
           </NavLink>
 
-          <NavLink to="/cart" className="flex flex-col items-center">
+          <NavLink to="/cart" className="relative flex flex-col items-center">
             {({ isActive }) => (
               <>
                 <span
-                  className={
+                  className={`${
                     isActive
-                      ? "text-blue-400 "
+                      ? "text-blue-500"
                       : "text-gray-500 hover:text-blue-400"
-                  }
+                  }`}
                 >
-                  cart
+                  Cart
                 </span>
+
                 <div
-                  className={`h-0.5 w-full ${isActive ? "bg-blue-500 " : ""}`}
+                  className={`h-0.5 w-full ${
+                    isActive ? "bg-blue-500" : "hidden"
+                  }`}
                 ></div>
+
+                <div className=" absolute -top-2 -right-4 rounded-full bg-[#13fc03] w-5 h-5 flex items-center justify-center text-xs text-center text-black ">
+                  1
+                </div>
               </>
             )}
+
+            
+            
           </NavLink>
 
           <NavLink to="/payment" className="flex flex-col items-center">
             {({ isActive }) => (
               <>
                 <span
-                  className={
+                  className={`${
                     isActive
-                      ? "text-blue-400  "
-                      : "text-gray-500 hover:text-blue-400 "
-                  }
+                      ? "text-blue-500"
+                      : "text-gray-500 hover:text-blue-400"
+                  }`}
                 >
-                  payment
+                  Payment
                 </span>
                 <div
-                  className={`h-0.5 w-full ${isActive ? "bg-blue-500 " : ""}`}
+                  className={`h-0.5 w-full ${
+                    isActive ? "bg-blue-500" : "hidden"
+                  }`}
                 ></div>
               </>
             )}
           </NavLink>
         </nav>
       </div>
-      <div className="flex gap-5   items-center justify-end">
-        <div>
+
+      <div className="flex gap-5   md:items-center justify-end">
+        <div className="md:flex hidden">
           <div className="bg-gray-100 border-0.5 border-gray-400 flex gap-2 items-center  px-3 py-1 rounded-md w-92">
             <FaSearch className="text-gray-400" />
             <input
@@ -88,10 +104,17 @@ const Navbar = () => {
             />
           </div>
         </div>
-        <div variant="primary">
-          <Link className="flex  gap-2 items-center bg-blue-500 py-1.5 px-4 text-white rounded-md font-medium hover:shadow-md">
+        <div className='flex gap-2 items-center justify-center'>
+          <Link className="flex  gap-2 items-center bg-blue-500 py-1.5 px-4 text-white rounded-md font-medium hover:shadow-md relative">
             <IoCartOutline className="font-semibold" /> Cart
+            <div className=" absolute -top-2 right-0 rounded-full bg-[#13fc03] w-5 h-5 flex items-center justify-center text-xs text-center text-black ">
+              1
+            </div>
           </Link>
+
+          <button className="md:hidden flex p-1 hover:bg-[#13fc03]">
+            <GiHamburgerMenu />
+          </button>
         </div>
       </div>
     </header>
