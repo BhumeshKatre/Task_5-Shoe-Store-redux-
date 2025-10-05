@@ -17,7 +17,7 @@ const Navbar = () => {
   }
 
   return (
-    <header className=" sticky top-0 left-0  grid grid-cols-2 justify-between gap-4 px-5 py-2 w-full shadow backdrop-blur-sm bg-white/20 items-center z-40 ">
+    <header className=" sticky top-0 left-0  grid grid-cols-2 justify-between gap-4 md:px-5 px-3 py-2 w-full shadow backdrop-blur-sm bg-white/20 items-center z-40 ">
       <div className="flex gap-5 items-center">
         <div className="">
           <Link>
@@ -131,7 +131,7 @@ const Navbar = () => {
 
           <button
             onClick={()=> setToggle(!toggle)}
-            className="md:hidden flex p-1 hover:bg-[#13fc03]">
+            className="md:hidden flex p-1 hover:bg-[#13fc03] hover:text-white">
             <GiHamburgerMenu />
           </button>
         </div>
@@ -140,9 +140,9 @@ const Navbar = () => {
 
       <div
         style={{
-          top : toggle ? '46px' : '-200px'
+          top : toggle ? '56px' : '-200px'
         }}
-        className="absolute top-14 flex flex-col  p-2 bg-white  duration-700 ">
+        className="backdrop-blur-sm absolute top-14 flex flex-col  p-2 bg-white duration-700 ">
         <div className="bg-gray-100 border-0.5 border-gray-400 flex gap-2 items-center  px-3 py-1 rounded-md w-92">
           <FaSearch className="text-gray-400" />
           <input
@@ -151,8 +151,7 @@ const Navbar = () => {
             type="text"
           />
         </div>
-        <hr  className="bg-gray-50 mt-2"/>
-        <nav className="  gap-8">
+        <nav className="mt-2 border-t border-gray-300">
           <NavLink
             onClick={handleMenubtn}
             to="/" className="flex flex-col p-2 w-full">
@@ -192,13 +191,6 @@ const Navbar = () => {
                   className={`h-0.5 w-full ${isActive ? "bg-blue-500" : "hidden"
                     }`}
                 ></div>
-
-                {
-                  (cartItems && cartItems.length > 0) &&
-                  <div className=" absolute -top-2 -right-4 rounded-full bg-[#13fc03] w-5 h-5 flex items-center justify-center text-xs text-center text-black ">
-                    {cartItems.length}
-                  </div>
-                }
               </>
             )}
 

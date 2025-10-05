@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Shoe1 from "/shoes/s1.png";
 import { IoCartOutline } from "react-icons/io5";
-
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../redux/cartSlice";
 const Card = ({ shoe }) => {
@@ -9,20 +8,18 @@ const Card = ({ shoe }) => {
   const { name, brand, rating, size, image, price } = shoe;
   const { cartItems, itemTotalPrice } = useSelector((state) => state.cart);
   const [selectSize, setSelectSize] = useState(null);
+  const existCartItem = cartItems.find((item) => item.id === shoe.id);
 
   const handleSize = (e) => {
     setSelectSize(e.target.value);
   };
-
-  const existCartItem = cartItems.find((item) => item.id === shoe.id);
-
 
   return (
     <div className="flex flex-col gap-2 rounded-2xl  overflow-hidden bg-white hover:-translate-1 duration-600 hover:shadow-md shadow ">
       <div className="relative">
         <img src={Shoe1} alt="" />
 
-        <span class=" absolute top-3 left-3 inline-flex items-center rounded-md bg-white px-2 py-1 text-xs font-medium text-gray-400 inset-ring inset-ring-white/20 ">
+        <span className=" absolute top-3 left-3 inline-flex items-center rounded-md bg-white px-2 py-1 text-xs font-medium text-gray-400 inset-ring inset-ring-white/20 ">
           {brand}
         </span>
       </div>
@@ -34,7 +31,7 @@ const Card = ({ shoe }) => {
           </div>
           <div>
             <p>
-              <span class="inline-flex items-center rounded-md  px-2 py-1 text-xs font-medium text-gray-400 ">
+              <span className="inline-flex items-center rounded-md  px-2 py-1 text-xs font-medium text-gray-400 ">
                 ⭐{rating}
               </span>
             </p>

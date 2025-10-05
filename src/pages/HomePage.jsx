@@ -12,8 +12,8 @@ const HomePage = () => {
     <>
       <Hero />
       <div className=" flex flex-col md:flex-row md:justify-between px-5 py-4 border-b border-gray-100">
-        <div className="flex md:gap-8 items-center">
-          <FiFilter size={20} />
+        <div className="flex md:gap-8 items-center gap-2">
+          <FiFilter size={20} className="hidden md:flex" />
           <select
           className="p-2 bg-gray-100 rounded-lg outline-none px-5"
             name="" id="">
