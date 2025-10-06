@@ -13,6 +13,8 @@ const Card = ({ shoe }) => {
     setSelectSize(e.target.value);
   };
 
+  // console.log(cartItems);
+
   return (
     <div className="flex flex-col gap-2 rounded-2xl  overflow-hidden bg-white hover:-translate-1 duration-600 hover:shadow-md shadow ">
       <div className="relative h-[60%]">
@@ -39,7 +41,7 @@ const Card = ({ shoe }) => {
         <div className="px-2 py-1 flex justify-between ">
           <h2 className="text-xl font-bold text-blue-500 ">$ {price}</h2>
           <p className="">
-            <span class="inline-flex items-center rounded-md bg-gray-400/10 px-2 py-1 text-xs font-medium text-gray-400 inset-ring inset-ring-gray-400/20">
+            <span className="inline-flex items-center rounded-md bg-gray-400/10 px-2 py-1 text-xs font-medium text-gray-400 inset-ring inset-ring-gray-400/20">
               { selectSize || size}
             </span>
           </p>
@@ -64,7 +66,7 @@ const Card = ({ shoe }) => {
           <button
             disabled={!selectSize || existCartItem}
             onClick={() => {
-              dispatch(addToCart({ ...shoe, size: selectSize }))
+              dispatch(addToCart({ ...shoe, size: selectSize, quantity : 1}))
                 setSelectSize(null);
             }}
             className={`p-2 rounded-lg flex items-center justify-center gap-2 font-semibold ${selectSize ? 'bg-[#13fc03] ' : ' bg-green-300'} `}
