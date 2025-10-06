@@ -5,9 +5,14 @@ import Card from "../component/Card";
 import { FiFilter } from "react-icons/fi";
 import WhyChoose from "../component/WhyChoose";
 import { shoes } from "../Data";
+import { useSelector } from "react-redux";
 
 const HomePage = () => {
  
+  const query = useSelector((state) => state.search);
+  console.log(query);
+
+
   return (
     <>
       <Hero />

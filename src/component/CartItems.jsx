@@ -84,7 +84,7 @@ const CartItems = ({cartItems}) => {
                   </button>
                 </Link>
               </div>
-              <span class="inline-flex items-center rounded-md mt-3 bg-gray-400/10 px-2 py-1 text-[11.5px] font-medium text-gray-400 inset-ring inset-ring-gray-400/20">
+              <span className="inline-flex items-center rounded-md mt-3 bg-gray-400/10 px-2 py-1 text-[11.5px] font-medium text-gray-400 inset-ring inset-ring-gray-400/20">
                 🔒 Secure checkout powered by industry-leading encryption
               </span>
             </div>
