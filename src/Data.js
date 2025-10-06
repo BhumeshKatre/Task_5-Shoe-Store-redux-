@@ -1,3 +1,14 @@
+import Shoe1 from "/shoes/s1.png";
+import Shoe2 from "/shoes/s2.png";
+import Shoe3 from "/shoes/s3.png";
+import Shoe4 from "/shoes/s4.png";
+import Shoe5 from "/shoes/s5.png";
+import Shoe6 from "/shoes/s6.png";
+import Shoe7 from "/shoes/s7.png";
+import Shoe8 from "/shoes/s8.png";
+
+
+
 export const shoes = [
   {
     id: 1,
@@ -6,7 +17,7 @@ export const shoes = [
     price: 129.99,
     rating: 4.5,
     size: "9",
-    image: "/shoes/s1.png",
+    image:Shoe1,
   },
   {
     id: 2,
@@ -15,7 +26,7 @@ export const shoes = [
     price: 149.99,
     rating: 4.7,
     size: "10",
-    image: "/shoes/s2.png",
+    image: Shoe2,
   },
   {
     id: 3,
@@ -24,7 +35,7 @@ export const shoes = [
     price: 119.99,
     rating: 4.3,
     size: "8.5",
-    image: "/shoes/s3.png",
+    image: Shoe3,
   },
   {
     id: 4,
@@ -33,7 +44,7 @@ export const shoes = [
     price: 89.99,
     rating: 4.2,
     size: "9.5",
-    image: "/shoes/s4.png",
+    image: Shoe4,
   },
   {
     id: 5,
@@ -42,7 +53,7 @@ export const shoes = [
     price: 74.99,
     rating: 4.6,
     size: "8",
-    image: "/shoes/s5.png",
+    image: Shoe6,
   },
   {
     id: 6,
@@ -51,7 +62,7 @@ export const shoes = [
     price: 69.99,
     rating: 4.4,
     size: "7.5",
-    image: "/shoes/s6.png",
+    image: Shoe7,
   },
   {
     id: 7,
@@ -60,7 +71,7 @@ export const shoes = [
     price: 199.99,
     rating: 4.8,
     size: "10",
-    image: "/shoes/s7.png",
+    image: Shoe5,
   },
   {
     id: 8,
@@ -69,24 +80,24 @@ export const shoes = [
     price: 99.99,
     rating: 4.1,
     size: "9",
-    image: "/shoes/s8.png",
+    image: Shoe8,
   },
-  {
-    id: 9,
-    name: "FuelCell Rebel",
-    brand: "New Balance",
-    price: 139.99,
-    rating: 4.6,
-    size: "8.5",
-    image: "/shoes/s9.png",
-  },
-  {
-    id: 10,
-    name: "Wave Rider",
-    brand: "Mizuno",
-    price: 109.99,
-    rating: 4.3,
-    size: "7",
-    image: "/shoes/s10.png",
-  },
+  // {
+  //   id: 9,
+  //   name: "FuelCell Rebel",
+  //   brand: "New Balance",
+  //   price: 139.99,
+  //   rating: 4.6,
+  //   size: "8.5",
+  //   image: "/shoes/s9.png",
+  // },
+  // {
+  //   id: 10,
+  //   name: "Wave Rider",
+  //   brand: "Mizuno",
+  //   price: 109.99,
+  //   rating: 4.3,
+  //   size: "7",
+  //   image: "/shoes/s10.png",
+  // },
 ];
