@@ -5,7 +5,7 @@ import searchReducer from './searchSlice'
 export const store = configureStore({
   reducer: {
     cart: cartReducer,
-    seach: searchReducer
+    search: searchReducer
   }
 
 });

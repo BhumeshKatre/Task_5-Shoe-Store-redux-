@@ -113,8 +113,8 @@ const Navbar = () => {
             <FaSearch className="text-gray-400" />
             <input
               onChange={hadleSeachBar}
-              className=" ms-2 p-1 outline-none border-none"
-              placeholder="Search Shoes..."
+              className="  p-1 outline-none border-none w-full"
+              placeholder="Search Shoes by brand name like nike..."
               type="text"
             />
           </div>

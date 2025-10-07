@@ -8,9 +8,11 @@ import { shoes } from "../Data";
 import { useSelector } from "react-redux";
 
 const HomePage = () => {
- 
   const query = useSelector((state) => state.search);
-  console.log(query);
+
+  const filterItem = shoes.filter(item =>
+    item.brand.toLowerCase().includes(query.query.toLowerCase() )
+  );
 
 
   return (
@@ -38,11 +40,11 @@ const HomePage = () => {
             <option value="brand">Brand</option>
           </select>
         </div>
-        <div>{shoes.length} products</div>
+        <div>{filterItem.length} products</div>
       </div>
 
       <div className="grid md:grid-cols-4  gap-4 py-4 px-5 bg-gray-200">
-        {shoes.map((shoe, indx) => (
+        {filterItem.map((shoe, indx) => (
           <Card key={indx} shoe={shoe} />
         ))}
       </div>
