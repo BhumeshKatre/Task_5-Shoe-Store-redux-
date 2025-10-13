@@ -52,7 +52,7 @@ const Card = ({ shoe }) => {
             value={selectSize}
             onChange={handleSize}
             className="w-full p-2 bg-gray-300 px-3 rounded-md  outline-blue-400">
-            <option >Select Size</option>
+            <option value={null} >Select Size</option>
             <option value={'7'}>7</option>
             <option value={'7.5'}>7.5</option>
             <option value={'8'}>8</option>

@@ -67,8 +67,8 @@ const CartPage = () => {
                       </button>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-md md:text-lg">
-                        Subtotal: $ {Math.floor(item.price * item.quantity)}
+                      <h4 className="font-semibold text-gray-400 text-md md:text-lg">
+                        Subtotal: <span className="text-black">$ {Math.floor(item.price * item.quantity)}</span>
                       </h4>
                     </div>
                   </div>
@@ -76,7 +76,7 @@ const CartPage = () => {
               ))}
             </div>
 
-            <div className="p-4  w-92 rounded-lg  md:order-2 order-1 ">
+            <div className="md:p-4  md:w-92 rounded-lg  md:order-2 order-1 ">
               <div className="bg-white p-4">
                 <h2 className="text-lg font-semibold"> Order Summary </h2>
                 <div className=" ">
@@ -112,7 +112,7 @@ const CartPage = () => {
                     </p>
                   </div>
 
-                  <span class="inline-flex w-full text-center items-center justify-center rounded-md bg-green-400/10 px-2 py-1 text-xs font-medium text-green-400 inset-ring inset-ring-green-500/20">
+                  <span className="inline-flex w-full text-center items-center justify-center rounded-md bg-green-400/10 px-2 py-1 text-xs font-medium text-green-400 inset-ring inset-ring-green-500/20">
                     {itemTotalPrice.price < 100
                       ? ` Add ${Math.floor(
                         100 - itemTotalPrice
