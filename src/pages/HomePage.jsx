@@ -43,7 +43,7 @@ const HomePage = () => {
         <div>{filterItem.length} products</div>
       </div>
 
-      <div className="grid md:grid-cols-4  gap-4 py-4 px-5 bg-gray-200">
+      <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4 py-4 px-5 bg-gray-200">
         {filterItem.map((shoe, indx) => (
           <Card key={indx} shoe={shoe} />
         ))}

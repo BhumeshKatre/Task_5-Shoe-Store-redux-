@@ -12,6 +12,7 @@ const CartPage = () => {
   const dispatch = useDispatch();
   const { cartItems, itemTotalPrice } = useSelector((state) => state.cart);
   // console.log(itemTotalPrice);
+  console.log(cartItems);
   return (
     <>
       {cartItems && cartItems.length > 0 ? (
@@ -21,63 +22,86 @@ const CartPage = () => {
             <p>{cartItems.length} items in your cart</p>
           </div>
 
-          <div className="flex md:flex-row flex-col md:justify-between md:px-4 py-3 gap-4 ">
+          <div className="flex md:flex-row flex-col md:justify-between md:px-1 py-3 gap-4 ">
             <div className="flex flex-col gap-2 flex-1  order-2 md:order-2 overflow-y-auto">
               {cartItems.map((item) => (
                 <div
                   key={item.id}
-                  className="flex w-full h-40 justify-between p-2 bg-white border border-gray-200  rounded-md "
+                  className="flex w-full  justify-between p-2 bg-white border border-gray-200  rounded-md "
                 >
-                  <div className="flex gap-2  ">
-                    <img
-                      className="w-26 h-26 rounded-2xl"
-                      src={item.image}
-                      alt=""
-                    />
-                    <div className="flex flex-col justify-between py-2">
-                      <div>
-                        <h3 className="font-bold ">{item.name} </h3>
-                        <p className="text-sm">{item.brand} </p>
-                      </div>
-                      <div className="flex flex-col md:flex-row">
-                        <span className="me-4 px-2 border-1 border-gray-300 p-0.5 text-[12px] bg-white rounded-lg">
-                          size : {item.size}
-                        </span>
-                        <span className="font-bold md:text-xl text-blue-500">
-                          $ {item.price}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+                  <div className="flex  flex-col justify-between   w-full  ">
+                    <div className="flex  gap-2">
+                      <img
+                        className="w-26 h-26 rounded-2xl"
+                        src={item.image}
+                        alt=""
+                      />
+                      <div className="flex flex-row justify-between py-2 flex-1">
+                        <div className="w-full">
+                          <div className="flex justify-between w-full ">
+                            <h3 className="font-bold flex-1 ">{item.name} </h3>
+                            <div className="flex gap-2 items-center">
+                            <button
+                              onClick={() => dispatch(decreaseItem(item.id))}
+                              className="  w-8 h-8 flex items-center justify-center rounded-md bg-gray-300 text-lg font-bold hover:bg-[#13fc03]"
+                            >
+                              -
+                            </button>
+                            <span>{item.quantity}</span>
+                            <button
+                              onClick={() => dispatch(increaseItem(item.id))}
+                                className=" w-8 h-8 flex items-center justify-center rounded-md bg-gray-300   hover:bg-[#13fc03]"
+                            >
+                              +
+                            </button>
+                          </div>
+                          </div>
+                          <p className="text-sm">{item.brand} </p>
 
-                  <div className="flex justify-between pt-4 flex-col ">
-                    <div className="flex gap-2 items-center">
-                      <button
-                        onClick={() => dispatch(decreaseItem(item.id))}
-                        className="  text-center w-7 h-7  rounded-md bg-gray-300 font-bold text-xl hover:bg-[#13fc03]"
-                      >
-                        -
-                      </button>
-                      <span>{item.quantity}</span>
-                      <button
-                        onClick={() => dispatch(increaseItem(item.id))}
-                        className=" w-7 h-7  rounded-md bg-gray-300 font-bold text-xl hover:bg-[#13fc03]"
-                      >
-                        +
-                      </button>
+                          <div className="flex flex-col md:flex-row justify-between w-full py-2">
+                            <span className="me-1  border-gray-300 p-0.5 text-[12px] bg-white rounded-lg">
+                              size : {item.size}
+                            </span>
+                            <span className="font-bold md:text-xl text-blue-500">
+                              $ {item.price}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-400 text-md md:text-lg">
-                        Subtotal: <span className="text-black">$ {Math.floor(item.price * item.quantity)}</span>
-                      </h4>
+
+                    <div className="flex jutify-end  lg:flex-col ">
+                      {/* <div className="flex gap-2 items-center">
+                        <button
+                          onClick={() => dispatch(decreaseItem(item.id))}
+                          className="  text-center w-7 h-7  rounded-md bg-gray-300 font-bold text-xl hover:bg-[#13fc03]"
+                        >
+                          -
+                        </button>
+                        <span>{item.quantity}</span>
+                        <button
+                          onClick={() => dispatch(increaseItem(item.id))}
+                          className=" w-7 h-7  rounded-md bg-gray-300 font-bold text-xl hover:bg-[#13fc03]"
+                        >
+                          +
+                        </button>
+                      </div> */}
+                      <div>
+                        <h4 className="font-semibold text-gray-400 text-md md:text-lg">
+                          Subtotal:{" "}
+                          <span className="text-black">
+                            $ {Math.floor(item.price * item.quantity)}
+                          </span>
+                        </h4>
+                      </div>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="md:p-4  md:w-92 rounded-lg  md:order-2 order-1 ">
-              <div className="bg-white p-4">
+            <div className="  md:w-92 rounded-lg  md:order-2 order-1 ">
+              <div className="bg-white p-4 rounded-lg">
                 <h2 className="text-lg font-semibold"> Order Summary </h2>
                 <div className=" ">
                   <div className="flex justify-between p-2 ">
@@ -96,7 +120,6 @@ const CartPage = () => {
                     <p className="text-gray-500">tax</p>
                     <p className="font-semibold">$0</p>
                   </div>
-                  
 
                   <div className="p-2 border-t border-gray-300 flex justify-between">
                     <p className="text-xl font-bold ">Total</p>
@@ -115,10 +138,9 @@ const CartPage = () => {
                   <span className="inline-flex w-full text-center items-center justify-center rounded-md bg-green-400/10 px-2 py-1 text-xs font-medium text-green-400 inset-ring inset-ring-green-500/20">
                     {itemTotalPrice.price < 100
                       ? ` Add ${Math.floor(
-                        100 - itemTotalPrice
-                      )}  more for free shipping!`
-                      : "🎉 Yay! You’re eligible for free shipping!"
-}
+                          100 - itemTotalPrice
+                        )}  more for free shipping!`
+                      : "🎉 Yay! You’re eligible for free shipping!"}
                   </span>
 
                   <div className="space-y-2 mt-4">
