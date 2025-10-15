@@ -109,12 +109,12 @@ const Navbar = () => {
 
       <div className="flex gap-5   md:items-center justify-end">
         <div className="md:flex hidden">
-          <div className="bg-gray-100 border-0.5 border-gray-400 flex gap-2 items-center  px-3 py-1 rounded-md w-92">
+          <div className="bg-gray-100 border-0.5 border-gray-400 flex gap-2 items-center  px-3 py-1 rounded-md w-60">
             <FaSearch className="text-gray-400" />
             <input
               onChange={hadleSeachBar}
-              className="  p-1 outline-none border-none w-full"
-              placeholder="Search Shoes by brand name like nike..."
+              className="  p-1 outline-none border-none w-60"
+              placeholder="Search Shoes by brand.."
               type="text"
             />
           </div>
