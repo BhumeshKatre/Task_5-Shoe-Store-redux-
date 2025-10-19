@@ -6,7 +6,7 @@ const ManiPageLayout = () => {
   return (
     <>
       <Navbar />
-      <div className='bg-gray-200 min-h-[100vh]'>
+      <div className='bg-gray-200'>
         <Outlet />
       </div>
     </>

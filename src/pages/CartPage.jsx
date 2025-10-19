@@ -16,7 +16,7 @@ const CartPage = () => {
   return (
     <>
       {cartItems && cartItems.length > 0 ? (
-        <div className="px-4 py-3   ">
+        <div className="px-4 py-3     ">
           <div>
             <h2 className="text-blue-500 text-2xl font-bold">Shopping Cart</h2>
             <p>{cartItems.length} items in your cart</p>

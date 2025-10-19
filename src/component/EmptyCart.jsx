@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 const EmptyCart = ({ text , icon }) => {
   return (
-    <div className='flex h-[100vh] items-center justify-center box-border '>
-      <div className='text-center flex items-center justify-center flex-col gap-3'>
+    <div className='flex h-[89vh] overflow-y-hidden items-center justify-center  '>
+      <div className='text-center flex items-center justify-center flex-col gap-3 '>
         {icon && <FiShoppingBag className='text-center text-8xl text-blue-400' />}
         <h2 className='text-3xl font-bold '>Your cart is empty</h2>
         <p className='text-gray-500 '>{text}</p>
@@ -23,9 +23,3 @@ const EmptyCart = ({ text , icon }) => {
 }
 
 export default EmptyCart;
-
-
-// 
-// 
-
-// Continue Shopping
